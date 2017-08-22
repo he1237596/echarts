@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="lib/echarts.min.js"></script>
+</head>
+<body>
+<div id="main" style="width: 900px;height: 600px;"></div>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+        title:{
+//            show:false,是否显示
+            text:'echarts',//标题名称
+            subtext:'哈哈',//副标题
+            left:'right',//标题位置(center,left)
+            borderColor:'blue',//标题边框颜色
+            borderWidth:5,//不能带单位,最好都不带单位
+            textStyle:{//标题文字样式
+                color:'red',
+                fontSize:30
+            },
+            subtextStyle:{
+                color:'green',//副标题文字样式
+                fontSize:30
+            }
+        },
+        toolbox:{
+            show:true,
+            feature:{
+                saveAsImage:{//保存为图片按钮
+                    show:true
+                },
+                dataView:{// 数据按钮
+                    show:true
+                },
+                restore:{//还原按钮
+                    show:true
+                },
+                dataZoom:{//区域缩放/还原按钮
+                    show:true
+                },
+                magicType:{//动态类型切换
+                    type:['line','bar']
+                }
+            }
+        },
+        tooltip:{//鼠标移动到图上时一个小弹窗提示
+            show:true,//默认
+            trigger:'axis'
+        },
+        legend:{//图例组件
+            data:['销量','产量']
+        },
+        xAxis:{//x轴数据
+            data:['衬衫','羊毛衫','雪纺衫','裤子','高跟鞋','袜子']
+        },
+        yAxis:{},
+        series:[{
+            name:'销量',
+            type:'bar',
+            data:[5,20,36,10,10,20]
+        },{
+            name:'产量',
+            type:'line',
+            data:[7,30,50,11,40,80]
+        }]
+    }
+    myChart.setOption(option);
+</script>
+</body>
+</html>
